@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Montage Business Financial — Fast Capital for Growing Businesses</title>
+<!--
+  INTERNAL REVIEW
+  Industry: Business Capital / Commercial Lending (Family Office)
+  Palette: Deep navy #0B1D3A, gold accent #C9A84C, white #FFFFFF, light gray #F4F5F7, dark text #1A1A2E
+  Typography: System sans-serif stack (clean, institutional finance feel)
+  Reference inspiration: nationalfunding.com, ondeck.com, bfrfinancial.com, lendio.com (layout patterns only)
+-->
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0B1D3A;--gold:#C9A84C;--gold-light:#E8D48B;--white:#FFFFFF;--light:#F4F5F7;--dark:#1A1A2E;--gray:#6B7280;--radius:8px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--dark);line-height:1.6;background:var(--white)}
+a{text-decoration:none;color:inherit}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+nav{background:var(--navy);padding:14px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.25rem;font-weight:700;color:var(--gold);letter-spacing:.5px}
+.logo span{color:var(--white);font-weight:400}
+nav a.nav-cta{background:var(--gold);color:var(--navy);padding:8px 22px;border-radius:var(--radius);font-weight:600;font-size:.9rem;transition:background .2s}
+nav a.nav-cta:hover{background:var(--gold-light)}
+
+/* HERO + SURVEY */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#132B50 100%);padding:50px 0 60px;color:var(--white)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.hero-text h1{font-size:2.3rem;line-height:1.2;margin-bottom:16px;font-weight:800}
+.hero-text h1 .gold{color:var(--gold)}
+.hero-text p{font-size:1.05rem;color:#CBD5E1;margin-bottom:20px;max-width:480px}
+.hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.badge{background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.35);color:var(--gold);padding:5px 14px;border-radius:20px;font-size:.8rem;font-weight:600}
+
+/* SURVEY FORM */
+#qualification{background:var(--white);border-radius:12px;padding:30px 28px;color:var(--dark);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+#qualification h2{font-size:1.25rem;margin-bottom:4px;color:var(--navy)}
+#qualification .sub{font-size:.85rem;color:var(--gray);margin-bottom:18px}
+#qualification label{display:block;font-size:.82rem;font-weight:600;margin-bottom:4px;color:var(--navy)}
+#qualification select,#qualification input{width:100%;padding:10px 12px;border:1px solid #D1D5DB;border-radius:var(--radius);font-size:.9rem;margin-bottom:14px;background:var(--light);appearance:auto}
+#qualification select:focus,#qualification input:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+.survey-btn{width:100%;padding:14px;background:var(--gold);color:var(--navy);border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.3px}
+.survey-btn:hover{background:var(--gold-light)}
+.form-note{font-size:.72rem;color:var(--gray);text-align:center;margin-top:8px}
+
+/* STATS BAR */
+.stats-bar{background:var(--navy);border-top:1px solid rgba(201,168,76,.2);padding:30px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat-item .num{font-size:1.8rem;font-weight:800;color:var(--gold)}
+.stat-item .lbl{font-size:.8rem;color:#94A3B8;margin-top:2px}
+
+/* SECTIONS */
+section{padding:60px 0}
+section.alt{background:var(--light)}
+.section-title{text-align:center;margin-bottom:40px}
+.section-title h2{font-size:1.8rem;font-weight:800;color:var(--navy)}
+.section-title p{color:var(--gray);max-width:560px;margin:8px auto 0;font-size:.95rem}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.service-card{background:var(--white);border:1px solid #E5E7EB;border-radius:12px;padding:28px 24px;transition:box-shadow .2s;position:relative;overflow:hidden}
+.service-card:hover{box-shadow:0 6px 24px rgba(11,29,58,.1)}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--gold)}
+.service-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--navy),#1E3A5F);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:1.3rem;color:var(--gold)}
+.service-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.service-card p{font-size:.85rem;color:var(--gray);line-height:1.5}
+
+/* PROCESS */
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:step}
+.step{text-align:center;position:relative}
+.step-num{width:50px;height:50px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:1.2rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.step h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.step p{font-size:.85rem;color:var(--gray)}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.why-item{display:flex;gap:14px;align-items:flex-start;background:var(--white);padding:20px;border-radius:10px;border:1px solid #E5E7EB}
+.why-icon{min-width:40px;height:40px;background:rgba(201,168,76,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gold)}
+.why-item h4{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:3px}
+.why-item p{font-size:.82rem;color:var(--gray)}
+
+/* FAQ */
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid #E5E7EB;padding:18px 0}
+.faq-q{font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--gold);transition:transform .2s}
+.faq-item.open .faq-q::after{content:'−'}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s;font-size:.85rem;color:var(--gray);line-height:1.6}
+.faq-item.open .faq-a{max-height:300px;padding-top:10px}
+
+/* CTA BOTTOM */
+.cta-bottom{background:linear-gradient(135deg,var(--navy),#132B50);padding:50px 0;text-align:center;color:var(--white)}
+.cta-bottom h2{font-size:1.8rem;font-weight:800;margin-bottom:10px}
+.cta-bottom p{color:#CBD5E1;margin-bottom:24px;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--navy);padding:14px 36px;border-radius:var(--radius);font-weight:700;font-size:1rem;transition:background .2s}
+.btn-gold:hover{background:var(--gold-light)}
+
+/* FOOTER */
+footer{background:#060F1F;padding:30px 0;text-align:center;color:#64748B;font-size:.78rem}
+footer a{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero-grid{grid-template-columns:1fr;gap:28px}
+.hero-text h1{font-size:1.7rem}
+.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.services-grid{grid-template-columns:1fr}
+.process-steps{grid-template-columns:1fr;gap:24px}
+.why-grid{grid-template-columns:1fr}
+#qualification{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="container">
+<div class="logo">MONTAGE <span>Business Financial</span></div>
+<a href="#qualification" class="nav-cta">Get Funded →</a>
+</div>
+</nav>
+
+<!-- HERO + SURVEY (TOP OF PAGE) -->
+<section class="hero">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-text">
+<div class="hero-badges">
+<span class="badge">SBA Loans</span>
+<span class="badge">Bridge Capital</span>
+<span class="badge">Growth Funding</span>
+</div>
+<h1>Get <span class="gold">6–7 Figure Capital</span> in as Little as 48 Hours</h1>
+<p>Montage Business Financial helps established businesses access the capital they need — fast. Whether your credit is perfect or challenged, our family-office network finds solutions traditional banks won't.</p>
+<p style="font-size:.88rem;color:var(--gold)">→ Complete the short form to see if you qualify.</p>
+</div>
+
+<!-- SURVEY / QUALIFICATION FORM — FIRST VIEWPORT -->
+<form id="qualification" action="booking.html" method="get">
+<h2>See If You Qualify</h2>
+<p class="sub">Takes less than 60 seconds. No credit pull required.</p>
+
+<label for="biz_name">Business Name</label>
+<input type="text" id="biz_name" name="biz_name" placeholder="Your company name" required>
+
+<label for="annual_rev">Annual Revenue</label>
+<select id="annual_rev" name="annual_rev" required>
+<option value="" disabled selected>Select range</option>
+<option>Under $1M</option>
+<option>$1M – $5M</option>
+<option>$5M – $25M</option>
+<option>$25M – $50M</option>
+<option>$50M – $100M</option>
+<option>$100M+</option>
+</select>
+
+<label for="capital_need">How Much Capital Do You Need?</label>
+<select id="capital_need" name="capital_need" required>
+<option value="" disabled selected>Select range</option>
+<option>$100K – $250K</option>
+<option>$250K – $500K</option>
+<option>$500K – $1M</option>
+<option>$1M – $5M</option>
+<option>$5M+</option>
+</select>
+
+<label for="timeline">How Soon Do You Need Funding?</label>
+<select id="timeline" name="timeline" required>
+<option value="" disabled selected>Select timeline</option>
+<option>Within 48 hours</option>
+<option>This week</option>
+<option>Within 30 days</option>
+<option>Exploring options</option>
+</select>
+
+<label for="funding_type">Type of Funding Needed</label>
+<select id="funding_type" name="funding_type">
+<option value="" disabled selected>Select type</option>
+<option>SBA Loan</option>
+<option>Asset-Based Lending</option>
+<option>Growth Capital / Line of Credit</option>
+<option>Bridge Loan</option>
+<option>Equipment Financing</option>
+<option>Not sure — need guidance</option>
+</select>
+
+<label for="email">Business Email</label>
+<input type="email" id="email" name="email" placeholder="you@company.com" required>
+
+<!-- IMPLEMENTATION NOTE: Replace this static form with GHL embed or webhook integration -->
+<button type="submit" class="survey-btn">Check My Eligibility →</button>
+<p class="form-note">Your information is secure. No obligation. No hard credit inquiry.</p>
+</form>
+</div>
+</div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item"><div class="num">$2M–$4M</div><div class="lbl">Funded Monthly</div></div>
+<div class="stat-item"><div class="num">48 hrs</div><div class="lbl">Fastest Funding</div></div>
+<div class="stat-item"><div class="num">6–7 Figures</div><div class="lbl">Capital Range</div></div>
+<div class="stat-item"><div class="num">Family Office</div><div class="lbl">Backed Network</div></div>
+</div>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Capital Solutions for Every Stage</h2>
+<p>From SBA loans to bridge financing, we match your business with the right capital structure — even when traditional banks say no.</p>
+</div>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-icon">🏛</div>
+<h3>SBA Loans</h3>
+<p>Government-backed loans with competitive rates for qualifying businesses. We streamline the process and handle the complexity.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">📊</div>
+<h3>Asset-Based Lending</h3>
+<p>Leverage your receivables, inventory, or equipment to unlock capital that's already sitting in your business.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🚀</div>
+<h3>Growth Capital</h3>
+<p>Flexible lines of credit and growth financing designed for businesses scaling from $5M to $100M in annual revenue.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🌉</div>
+<h3>Bridge Loans</h3>
+<p>Short-term capital to bridge gaps between funding rounds, acquisitions, or seasonal cash flow needs.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">⚙️</div>
+<h3>Equipment Financing</h3>
+<p>Acquire the machinery, technology, or fleet your business needs without depleting working capital.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">🔓</div>
+<h3>Challenged Credit Solutions</h3>
+<p>Low credit score? We work with businesses that traditional lenders overlook, finding creative capital access paths.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="alt">
+<div class="container">
+<div class="section-title">
+<h2>How It Works</h2>
+<p>From application to funding in three straightforward steps.</p>
+</div>
+<div class="process-steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Complete the Quick Application</h3>
+<p>Fill out the qualification form above. It takes less than 60 seconds and requires no hard credit pull.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Speak With a Capital Advisor</h3>
+<p>A dedicated advisor reviews your profile and matches you with the best funding options from our network.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Receive Your Capital</h3>
+<p>Once approved, funds can be deployed in as little as 48 hours — directly to your business account.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHY MONTAGE -->
+<section>
+<div class="container">
+<div class="section-title">
+<h2>Why Businesses Choose Montage</h2>
+</div>
+<div class="why-grid">
+<div class="why-item">
+<div class="why-icon">⚡</div>
+<div><h4>Speed That Matters</h4><p>When opportunity knocks, you can't wait 90 days. We fund 6–7 figure deals in as little as 48 hours.</p></div>
+</div>
+<div class="why-item">
+<div class="why-icon">🏦</div>
+<div><h4>Family Office Network</h4><p>Access private capital sources that aren't available through traditional banking channels.</p></div>
+</div>
+<div class="why-item">
+<div class="why-icon">🤝</div>
+<div><h4>Relationship-Driven</h4><p>We're not a faceless platform. Every client works with a dedicated advisor who understands their business.</p></div>
+</div>
+<div class="why-item">
+<div class="why-icon">🔑</div>
+<div><h4>Credit-Flexible</h4><p>Imperfect credit doesn't mean no options. We specialize in finding solutions for higher-risk profiles.</p></div>
+</div>
+<div class="why-item">
+<div class="why-icon">📈</div>
+<div><h4>Built for Mid-Market</h4><p>We focus on businesses doing $5M–$100M in annual revenue — the underserved middle that big banks ignore.</p></div>
+</div>
+<div class="why-item">
+<div class="why-icon">🛡</div>
+<div><h4>Transparent Terms</h4><p>Clear fee structures (3–10%) with no hidden costs. You know exactly what you're paying before you commit.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="alt">
+<div class="container">
+<div class="section-title">
+<h2>Frequently Asked Questions</h2>
+</div>
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What types of businesses do you work with?</div>
+<div class="faq-a">We primarily serve established businesses with $5M–$100M in annual revenue across a wide range of industries including manufacturing, logistics, healthcare, technology, and professional services.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How fast can I receive funding?</div>
+<div class="faq-a">Depending on the type of capital and your documentation readiness, funding can be deployed in as little as 48 hours for bridge and asset-based solutions. SBA loans typically take 2–4 weeks.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will applying affect my credit score?</div>
+<div class="faq-a">No. Our initial qualification process uses a soft inquiry only. A hard credit pull is only performed if you choose to move forward with a specific funding offer.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if my credit score is low?</div>
+<div class="faq-a">We specialize in working with businesses that have challenged credit profiles. Our family-office network and alternative lending partners offer solutions that traditional banks typically won't consider.</div>
+</div>
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What are your fees?</div>
+<div class="faq-a">Our success fees range from 3–10% depending on the deal size, complexity, and type of capital. All fees are disclosed upfront before you commit to any funding arrangement.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-bottom">
+<h2>Ready to Fuel Your Next Phase of Growth?</h2>
+<p>Complete the 60-second qualification form and speak with a capital advisor today.</p>
+<a href="#qualification" class="btn-gold">Get Started Now →</a>
+</section>
+
+<footer>
+<div class="container">
+<p>&copy; 2025 Montage Business Financial. All rights reserved.</p>
+<p style="margin-top:6px;font-size:.7rem;color:#475569"><!-- Demo generated for internal Growthlink review. Not a live production page. --></p>
+</div>
+</footer>
+
+</body>
+</html>
